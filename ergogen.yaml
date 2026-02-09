@@ -22,7 +22,7 @@ points:
             home.key:
               led_prev: LED20
               led_next: LED21
-            bottom.skip: True
+            bottom.skip: true
         pinky:
           key.splay: -2
           key.origin: [-12, -19]
