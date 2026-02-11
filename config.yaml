@@ -112,7 +112,7 @@ points:
           key.column_net: col6
           rows:
             num.key:
-              led_prev: P3
+              led_prev: LED0
               led_next: LED1
             top.key:
               led_prev: LED12
@@ -326,3 +326,13 @@ pcbs:
         what: ceoloide/battery_connector_jst_ph_2
         params:
           reversible: true
+#      level_shifter:
+#        what: SOT-23-5
+#        where:
+#          shift: [-80,0]
+#        nets:
+#          1: GND
+#          2: P3
+#          3: GND
+#          4: LED0
+#          5: VCC
