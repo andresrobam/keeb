@@ -326,13 +326,15 @@ pcbs:
         what: ceoloide/battery_connector_jst_ph_2
         params:
           reversible: true
-#      level_shifter:
-#        what: SOT-23-5
-#        where:
-#          shift: [-80,0]
-#        nets:
-#          1: GND
-#          2: P3
-#          3: GND
-#          4: LED0
-#          5: VCC
+      level_shifter:
+        what: sot-23-5
+        where:
+          ref: matrix_macro_num
+          shift: [30, -50]
+        params:
+          L1: GND
+          L2: P3
+          L3: GND
+          L4: LED0
+          L5: VCC
+          back: true
