@@ -184,63 +184,14 @@ points:
       
 outlines:
   panel:
-    - what: polygon
-      operation: stack
-      points:
-        - ref: matrix_farpinky_home
-          shift: [-(u/2 + p), -(u/2 + p)]
-        - ref: matrix_farpinky_num
-          shift: [-(u/2 + p), +(u/2 + p)]
-        - ref: matrix_farpinky_num
-          shift: [+(u/2 - p), +(u/2 + p)]
-        - ref: matrix_pinky_num
-          shift: [-(u/2 + p), +(u/2 + p)]
-        - ref: matrix_pinky_num
-          shift: [+(u/2 - p), +(u/2 + p)]
-        - ref: matrix_ring_num
-          shift: [-(u/2 + p), +(u/2 + p)]
-        - ref: matrix_ring_num
-          shift: [+(u/2 - p), +(u/2 + p)]
-        - ref: matrix_middle_num
-          shift: [-(u/2 + p), +(u/2 + p)]
-        - ref: matrix_middle_num
-          shift: [+(u/2 + p), +(u/2 + p)]
-        - ref: matrix_index_num
-          shift: [-(u/2 - p), +(u/2 + p)]
-        - ref: matrix_index_num
-          shift: [+(u/2 + p), +(u/2 + p)]
-        - ref: matrix_inner_num
-          shift: [-(u/2 - p), +(u/2 + p)]
-        - ref: matrix_inner_num
-          shift: [+(u/2 + p), +(u/2 + p)]
-        - ref: matrix_macro_num
-          shift: [-(u/2 - p), +(u/2 + p)]
-        - ref: matrix_macro_num
-          shift: [+(u/2 + p), +(u/2 + p)]
-        - ref: matrix_macro_bottom
-          shift: [+(u/2 + p), -(u/2 + p)]
-        - ref: thumbfan_outer_top
-          shift: [2.9p, +(u/2 + p)]
-        - ref: thumbfan_outer_top
-          shift: [+(u/2 + p), +(u/2 + p)]
-        - ref: thumbfan_outer_bottom
-          shift: [+(u/2 + p), -(u/2 + p)]
-        - ref: thumbfan_outer_bottom
-          shift: [-(u/2 + p), -(u/2 + p)]
-        - ref: thumbfan_home_bottom
-          shift: [+(u/2 - 0.5p), -(u/2 + p)]
-        - ref: thumbfan_inner_bottom
-          shift: [+(u/2 + p), -(u/2 + p)]
-        - ref: thumbfan_inner_bottom
-          shift: [-(u/2 + p), -(u/2 + p)]
-      fillet: 1
-
+    - what: rectangle
+      where: /^(matrix|thumbfan)_.*/
+      size: [30, 30]
 pcbs:
   main:
     template: kicad8
     outlines:
-      main:
-        outline: panel
+      - outline: panel
     footprints:
       switch:
         what: ceoloide/switch_mx
@@ -277,8 +228,7 @@ pcbs:
         what: ceoloide/mcu_nice_nano
         where:
           ref: matrix_macro_num
-          shift: [30, 0]
-          rotate: 0
+          shift: [25, -2]
         params:
           reversible: true
           P4: col0
@@ -296,6 +246,10 @@ pcbs:
           P20: row5
       trrs:
         what: trrs
+        where:
+          ref: matrix_macro_num
+          shift: [5, -27]
+          rotate: 180
         params:
           reverse: true
           A: VCC
@@ -307,6 +261,10 @@ pcbs:
           rotate: 90
       power_switch:
         what: slider
+        where:
+          ref: matrix_macro_home
+          shift: [43, -18]
+          rotate: 180
         params:
           from: RAW
           to: BAT_P
@@ -315,6 +273,10 @@ pcbs:
           rotate: 90
       power_switch_back:
         what: slider
+        where:
+          ref: matrix_macro_home
+          shift: [43, -18]
+          rotate: 180
         params:
           from: BAT_P
           to: RAW
@@ -324,13 +286,17 @@ pcbs:
           rotate: 90
       battery_connector:
         what: ceoloide/battery_connector_jst_ph_2
+        where:
+          ref: matrix_macro_home
+          shift: [25, 5]
+          rotate: 0
         params:
           reversible: true
       level_shifter:
         what: sot-23-5
         where:
           ref: matrix_macro_num
-          shift: [30, -50]
+          shift: [18, -27]
         params:
           L1: GND
           L2: P3
