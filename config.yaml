@@ -138,44 +138,44 @@ points:
         ref: matrix_inner_bottom
         shift: [-20, -42]
       columns:
-        inner:
+        tinner:
           key.splay: -4
           key.column_net: col4
           rows:
-            top.key:
+            ttop.key:
               led_prev: LED29
               led_next: LED30
-            bottom.key:
+            tbottom.key:
               led_prev: LED30
               led_next: LED31
-        home:
+        tcenter:
           key.spread: 20
           key.splay: -2
           key.origin: [-11.75, -9]
           key.column_net: col5
           rows:
-            top.key:
+            ttop.key:
               led_prev: LED28
               led_next: LED29
-            bottom.key:
+            tbottom.key:
               led_prev: LED31
               led_next: LED32
-        outer:
+        touter:
           key.spread: 20
           key.splay: -3
           key.origin: [-80, -9]
           key.column_net: col6
           rows:
-            top.key:
+            ttop.key:
               led_prev: LED27
               led_next: LED28
-            bottom.key:
+            tbottom.key:
               led_prev: LED32
               led_next: LED33
       rows:
-        bottom:
+        tbottom:
           row_net: row0
-        top:
+        ttop:
           row_net: row1
   rotate: -20
   mirror:
@@ -187,11 +187,21 @@ outlines:
     - what: rectangle
       where: /^(matrix|thumbfan)_.*/
       size: [30, 30]
+  controller:
+    - what: rectangle
+      where: matrix_macro_num
+      size: [20, 60]
+      adjust:
+        shift: [25, -15]
+  combined:
+    - name: panel
+    - operation: add
+      name: controller
 pcbs:
   main:
     template: kicad8
     outlines:
-      - outline: panel
+      - outline: combined
     footprints:
       switch:
         what: ceoloide/switch_mx
@@ -244,6 +254,19 @@ pcbs:
           P18: row3
           P19: row4
           P20: row5
+          P4_label: P4
+          P5_label: P5
+          P6_label: P6
+          P7_label: P7
+          P8_label: P8
+          P9_label: P9
+          P10_label: P10
+          P16_label: P16
+          P14_label: P14
+          P15_label: P15
+          P18_label: P18
+          P19_label: P19
+          P20_label: P20
       trrs:
         what: trrs
         where:
