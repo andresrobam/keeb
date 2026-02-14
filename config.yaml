@@ -224,7 +224,7 @@ pcbs:
           include_traces_vias: true
         adjust:
           shift: [-7, 5]
-          rotate: 90
+          rotate: -90
       rgb:
         what: ceoloide/led_sk6812mini-e
         where: /^(matrix|thumbfan)_.*/
